@@ -7,7 +7,6 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.github.mattpvaughn.chronicle.data.model.LoadingStatus
 import io.github.mattpvaughn.chronicle.data.model.PlexLibrary
-import io.github.mattpvaughn.chronicle.data.model.ServerModel
 import timber.log.Timber
 
 @BindingAdapter("loadingStatus")
@@ -43,12 +42,6 @@ fun bindLoadingStatus(
         LoadingStatus.LOADING -> progressBar.visibility = View.VISIBLE
         else -> {}
     }
-}
-
-@BindingAdapter("listData")
-fun bindServerData(recyclerView: RecyclerView, data: List<ServerModel>) {
-    val adapter = recyclerView.adapter as ServerListAdapter
-    adapter.submitList(data)
 }
 
 @BindingAdapter("listData")
