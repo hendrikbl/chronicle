@@ -8,13 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.mattpvaughn.chronicle.data.model.LoadingStatus
 import io.github.mattpvaughn.chronicle.data.model.PlexLibrary
 import io.github.mattpvaughn.chronicle.data.model.ServerModel
-import io.github.mattpvaughn.chronicle.data.sources.plex.model.PlexUser
 import timber.log.Timber
 
 @BindingAdapter("loadingStatus")
 fun bindLoadingStatus(
-    recyclerView: RecyclerView,
-    loadingStatus: LoadingStatus?
+    recyclerView: RecyclerView, loadingStatus: LoadingStatus?
 ) {
     Timber.i("Loading status: $loadingStatus")
     when (loadingStatus) {
@@ -37,8 +35,7 @@ fun bindLoadingStatus(errorView: TextView, loadingStatus: LoadingStatus?) {
 
 @BindingAdapter("loadingStatus")
 fun bindLoadingStatus(
-    progressBar: ProgressBar,
-    loadingStatus: LoadingStatus?
+    progressBar: ProgressBar, loadingStatus: LoadingStatus?
 ) {
     when (loadingStatus) {
         LoadingStatus.ERROR -> progressBar.visibility = View.GONE
@@ -51,12 +48,6 @@ fun bindLoadingStatus(
 @BindingAdapter("listData")
 fun bindServerData(recyclerView: RecyclerView, data: List<ServerModel>) {
     val adapter = recyclerView.adapter as ServerListAdapter
-    adapter.submitList(data)
-}
-
-@BindingAdapter("users")
-fun bindUsers(recyclerView: RecyclerView, data: List<PlexUser>) {
-    val adapter = recyclerView.adapter as UserListAdapter
     adapter.submitList(data)
 }
 

@@ -27,7 +27,11 @@ android {
         }
     }
     buildFeatures {
-        dataBinding = true
+        dataBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.4'
     }
     configurations {
         all {
@@ -82,7 +86,6 @@ android {
 }
 
 
-
 dependencies {
     implementation fileTree(include: ["*.jar"], dir: "libs")
 
@@ -103,6 +106,22 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-service:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-process:$lifecycleVersion"
+
+    // Compose
+    def composeBom = platform('androidx.compose:compose-bom:2022.10.00')
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    implementation "androidx.compose.runtime:runtime"
+    implementation "androidx.compose.ui:ui"
+    implementation "androidx.compose.foundation:foundation"
+    implementation "androidx.compose.foundation:foundation-layout"
+    implementation "androidx.compose.material3:material3"
+    implementation "androidx.compose.runtime:runtime-livedata"
+    implementation "androidx.compose.ui:ui-tooling"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.30.1"
+    implementation "com.google.accompanist:accompanist-themeadapter-material3:0.30.1"
+
 
     // Google Play Billing
     implementation "com.github.akshaaatt:Google-IAP:$iapWrapperVersion"
@@ -146,15 +165,18 @@ dependencies {
 //    kapt "com.squareup.inject:assisted-inject-processor-dagger2:0.5.2"
 
     // TODO: Remove glide, only included to delete the cache v0.45
-    implementation ("com.github.bumptech.glide:glide:4.11.0") {
+    implementation("com.github.bumptech.glide:glide:4.11.0") {
         // exclude okhttp import in favor of our own import
         exclude group: "com.squareup.okhttp:"
     }
 
 
-        // Fresco - image loading
+    // Fresco - image loading
     implementation 'com.facebook.fresco:fresco:2.6.0'
     implementation "com.facebook.fresco:imagepipeline-okhttp3:2.4.0"
+
+    // Coil- image loading
+    implementation "io.coil-kt:coil-compose:2.3.0"
 
     // LocalBroadcastManager
     implementation "androidx.localbroadcastmanager:localbroadcastmanager:$localBroadcastManagerVersion"
@@ -168,7 +190,7 @@ dependencies {
     implementation("com.github.PaulWoitaschek.ExoPlayer-Extensions:extension-opus:$exoplayerExtensions") {
         transitive = false
     }
-    implementation("com.github.PaulWoitaschek.ExoPlayer-Extensions:extension-flac:$exoplayerExtensions"){
+    implementation("com.github.PaulWoitaschek.ExoPlayer-Extensions:extension-flac:$exoplayerExtensions") {
         transitive = false
     }
 

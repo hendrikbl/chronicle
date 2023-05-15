@@ -1,15 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:fontFamily">@font/lato</item>
-        <item name="chipStyle">@style/FilterChip</item>
-        <item name="chipGroupStyle">@style/FilterChipGroup</item>
-    </style>
+<!--    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--        <item name="android:fontFamily">@font/lato</item>-->
+<!--        <item name="chipStyle">@style/FilterChip</item>-->
+<!--        <item name="chipGroupStyle">@style/FilterChipGroup</item>-->
+<!--    </style>-->
 
     <style name="TextAppearance.Title" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textAllCaps">true</item>
